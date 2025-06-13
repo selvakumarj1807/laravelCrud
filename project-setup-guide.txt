@@ -1,0 +1,93 @@
+PROJECT SETUP GUIDE - CRUD APP (LARAVEL)
+
+________________________________________
+
+1️⃣ CLONE OR CREATE THE PROJECT:
+
+    If you downloaded this from Git:
+
+    git clone <your-repo-url>
+
+    OR create a new project manually:
+
+    composer create-project laravel/laravel crud-app
+
+________________________________________
+
+2️⃣ INSTALL DEPENDENCIES:
+
+    cd crud-app
+    composer install
+
+________________________________________
+
+3️⃣ SETUP ENV FILE:
+
+    - Duplicate ".env.example" to ".env":
+      cp .env.example .env
+
+    - Open ".env" and configure your database credentials:
+      DB_DATABASE=crud_app
+      DB_USERNAME=root
+      DB_PASSWORD=
+
+________________________________________
+
+4️⃣ GENERATE APP KEY:
+
+    php artisan key:generate
+
+________________________________________
+
+5️⃣ RUN MIGRATION:
+
+    php artisan migrate
+
+________________________________________
+
+6️⃣ START DEVELOPMENT SERVER:
+
+    php artisan serve
+
+    Your application will be available at:
+    http://127.0.0.1:8000/products
+
+________________________________________
+
+7️⃣ DIRECTORY STRUCTURE (FOR REFERENCE)
+
+crud-app/
+├── app/
+│ └─ Http/
+│    └─ Controllers/
+│       └─ ProductController.php
+│ └─ Models/
+│    └─ Product.php
+├── database/
+│ └─ migrations/
+│    └─ 2025_06_13_create_products_table.php
+├── resources/
+│ └─ views/
+│    └─ products/
+│       ├─ index.blade.php
+│       ├─ create.blade.php
+│       ├─ edit.blade.php
+│       └─ show.blade.php
+├── routes/
+│ └─ web.php
+
+________________________________________
+
+✅ NOTES:
+
+- The application performs CRUD operations (Create, Retrieve, Update, Delete) for products.
+- The main routes are defined in `web.php`.
+- The controller `ProductController` handles all business logic.
+- The view files in `resources/views/products/` provide UI for operations.
+
+________________________________________
+
+🚀 To view:
+Open http://127.0.0.1:8000/products in your browser after starting the server.
+
+________________________________________

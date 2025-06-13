@@ -1,0 +1,121 @@
+PROJECT CREATION GUIDE - CRUD APP (LARAVEL)
+
+________________________________________
+
+1️⃣ INSTALL COMPOSER:
+
+Make sure you have composer installed.
+To check:
+    composer --version
+
+________________________________________
+
+2️⃣ CREATE NEW LARAVEL PROJECT:
+
+Open terminal and run:
+    composer create-project laravel/laravel crud-app
+
+This will create a directory called "crud-app".
+
+________________________________________
+
+3️⃣ GO INTO THE DIRECTORY:
+
+    cd crud-app
+
+________________________________________
+
+4️⃣ SETUP ENV FILE:
+
+- Duplicate ".env.example" to ".env":
+    cp .env.example .env
+
+- Update ".env" with your database credentials:
+
+    DB_DATABASE=crud_app
+    DB_USERNAME=root
+    DB_PASSWORD=
+
+________________________________________
+
+5️⃣ GENERATE APP KEY:
+
+    php artisan key:generate
+
+________________________________________
+
+6️⃣ CREATE MODEL, MIGRATION, CONTROLLER (ALL IN ONCE) FOR PRODUCT:
+
+    php artisan make:model Product -mcr
+
+This command will:
+- create Product model in `app/Models/Product.php`
+- create a migration in `database/migrations/`
+- create a controller `ProductController` in `app/Http/Controllers/`
+
+________________________________________
+
+7️⃣ DEFINE YOUR TABLE COLUMNS:
+
+Open migration file:
+    database/migrations/{date}_create_products_table.php
+Add:
+    $table->string('name');
+    $table->integer('price')->default(0);
+    $table->text('description')->nullable();
+
+________________________________________
+
+8️⃣ RUN MIGRATION:
+
+    php artisan migrate
+
+________________________________________
+
+9️⃣ ADD FILLABLE TO YOUR MODEL:
+
+Open `Product.php`:
+
+    protected $fillable = ['name', 'price', 'description'];
+
+________________________________________
+
+10️⃣ REGISTER RESOURCE ROUTE:
+
+Open `routes/web.php`:
+
+    use App\Http\Controllers\ProductController;
+
+    Route::resource('products', ProductController::class);
+
+________________________________________
+
+11️⃣ CREATE VIEWS:
+
+Create directory:
+    resources/views/products/
+
+Create files:
+    - index.blade.php
+    - create.blade.php
+    - edit.blade.php
+    - show.blade.php
+
+________________________________________
+
+12️⃣ START DEVELOPMENT SERVER:
+
+    php artisan serve
+
+________________________________________
+
+13️⃣ VISIT APP:
+
+Open your browser:
+    http://127.0.0.1:8000/products
+
+________________________________________
+
+✅ The CRUD application is now up and running.
+
+________________________________________
