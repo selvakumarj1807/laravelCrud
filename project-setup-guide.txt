@@ -43,6 +43,8 @@ ________________________________________
 
     php artisan migrate
 
+    php artisan migrate:refresh
+
 ________________________________________
 
 6️⃣ START DEVELOPMENT SERVER:

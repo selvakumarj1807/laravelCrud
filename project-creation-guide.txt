@@ -63,7 +63,12 @@ Add:
     $table->string('name');
     $table->integer('price')->default(0);
     $table->text('description')->nullable();
+    $table->string('image')->nullable();
 
+
+________________________________________
+
+php artisan storage:link
 ________________________________________
 
 8️⃣ RUN MIGRATION:
